@@ -1,18 +1,18 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: pipeline-1
+  name: pipeline
 spec:
   workspaces:
   - name: pipeline-pvc
   tasks:
-    - name: echo-hello-world
-      image: ubuntu
+    - name: pipeline-echo-hello-world
+      taskRef:
+        name: echo-hello-world
       script: |
         #!/usr/bin/env bash
         set -xe
         echo "Hello World!"
-      
       workspaces:
       - name: task-pvc
         workspace: pipeline-pvc  
