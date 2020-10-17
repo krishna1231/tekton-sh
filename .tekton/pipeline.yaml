@@ -5,15 +5,17 @@ metadata:
 spec:
   params:
     - name: Cloud_Api_key
-      description: Cloud_Api_key
+      description: This is cloud api key
     - name: User_Name
-      description: User_Name
+      description: User Name
     - name: Pwd
       description: Password
   workspaces:
   - name: pipeline-pvc
   tasks:
     - name: pipeline-echo-hello-world
+      taskRef:
+        name: echo-hello-world
       params:
         - name: Cloud_Api_key
           description: Cloud_Api_key
@@ -21,8 +23,6 @@ spec:
           description: User_Name
         - name: Pwd
           description: Password
-      taskRef:
-        name: echo-hello-world
       workspaces:
       - name: task-pvc
         workspace: pipeline-pvc  
