@@ -9,6 +9,11 @@ spec:
     - name: pipeline-echo-hello-world
       taskRef:
         name: echo-hello-world
+        image: ubuntu
+        script: |
+          #!/usr/bin/env bash
+          set -xe
+          echo "This is krishna"
       workspaces:
       - name: task-pvc
         workspace: pipeline-pvc  
