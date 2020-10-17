@@ -5,9 +5,9 @@ metadata:
 spec:
   params:
     - name: Cloud_Api_key
-      description: Cloud_Api_key
+      description: This is cloud api key
     - name: User_Name
-      description: User_Name
+      description: User Name
     - name: Pwd
       description: Password
   workspaces:

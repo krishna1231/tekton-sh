@@ -5,9 +5,9 @@ metadata:
 spec:
   params:
     - name: Cloud_Api_key
-      description: Cloud_Api_key
+      description: This is cloud api key
     - name: User_Name
-      description: User_Name
+      description: User Name
     - name: Pwd
       description: Password
   resourcetemplates:
@@ -32,7 +32,13 @@ spec:
         workspaces:
           - name: pipeline-pvc
             persistentVolumeClaim:
-              claimName: pipelinerun-$(uid)-pvc        
+              claimName: pipelinerun-$(uid)-pvc
+        - name: Cloud_Api_key
+          value: $(params.Cloud_Api_key)
+        - name: User_Name
+          value: $(params.User_Name)
+        - name: Pwd
+          value: $(params.Pwd)        
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
