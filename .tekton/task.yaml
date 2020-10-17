@@ -8,17 +8,10 @@ spec:
     mountPath: /artifacts   
   steps:
     - name: echo-hello-world
-      image: alpine/git
-      env:
-        - name: REPOSITORY
-          value: https://github.com/krishna1231/teckton-sh.git
-        - name: REVISION
-          value: master
-      command: ["/bin/sh", "-c"]
-      args:
-        - set -e -o pipefail;
-          echo "Cloning $REPOSITORY";
-          cd /workspace && git clone -q -b master https://github.com/krishna1231/teckton-sh.git .;
-    
+      image: ubuntu
+      script: |
+        #!/usr/bin/env bash
+        set -xe
+        echo "Hello World!"
 
       
