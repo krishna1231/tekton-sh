@@ -46,10 +46,12 @@ metadata:
   name: binding
 spec:
   params:
-    - name: repository
-      value: "https://github.com/krishna1231/teckton-sh.git"
-    - name: revision
-      value: "master"
+    - name: Cloud_Api_key
+      value: $(params.Cloud_Api_key)
+    - name: User_Name
+      value: $(params.User_Name)
+    - name: Pwd
+      value: $(params.Pwd)
 ---
 apiVersion: tekton.dev/v1beta1
 kind: EventListener
