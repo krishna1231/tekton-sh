@@ -12,6 +12,6 @@ spec:
       script: |
         #!/usr/bin/env bash
         set -xe
-        echo "Hello World!"
+        echo "This is krishna"
 
       
