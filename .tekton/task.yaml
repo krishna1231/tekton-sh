@@ -1,0 +1,44 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: build-task
+spec:
+  workspaces:
+  - name: task-pvc
+    mountPath: /artifacts   
+  steps:
+    - name: clone-repo
+      image: alpine/git
+      env:
+        - name: REPOSITORY
+          value: https://github.com/krishna1231/teckton-sh.git
+        - name: REVISION
+          value: master
+      command: ["/bin/sh", "-c"]
+      args:
+        - set -e -o pipefail;
+          echo "Cloning $REPOSITORY";
+          cd /workspace && git clone -q -b master https://github.com/krishna1231/teckton-sh.git .;
+    - name: pre-build-check
+      image: ibmcom/pipeline-base-image
+      env:
+        - name: IBMCLOUD_API_KEY
+          value: Tsn8FST9aM19wuqLiHuY5NIHs6Zh9bXYHq4f4wetaLIV
+        - name: API
+          value: https://cloud.ibm.com
+        - name: REGION
+          value: us-south
+        - name: HOME
+          value: "/root"
+        - name: REGISTRY_NAMESPACE
+          value: test-teckton
+        - name: IMAGE_NAME
+          value: test-teckton
+      command: ["/bin/bash", "-c"]
+      args:
+        - set -e -o pipefail;
+          ibmcloud login -a https://cloud.ibm.com -r us-south;
+          export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";
+          cd /workspace && source pre-build-check.sh;
+
+      
