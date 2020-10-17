@@ -33,6 +33,7 @@ spec:
           - name: pipeline-pvc
             persistentVolumeClaim:
               claimName: pipelinerun-$(uid)-pvc
+        params:
         - name: Cloud_Api_key
           value: $(params.Cloud_Api_key)
         - name: User_Name
