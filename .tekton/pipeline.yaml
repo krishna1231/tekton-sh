@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: pipeline
+  name: pipeline-1
 spec:
   workspaces:
   - name: pipeline-pvc
