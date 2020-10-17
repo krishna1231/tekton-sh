@@ -29,5 +29,5 @@ spec:
         echo "This is krishna"
         echo "User_Name $User_Name"
         echo "Parameters reading"
-
-      
+        curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+        ibmcloud login -a cloud.ibm.com -u krishnapolimetla@gmail.com -p Teeksh@18 -r eu-de -g Default
