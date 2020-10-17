@@ -3,10 +3,24 @@ kind: Pipeline
 metadata:
   name: pipeline
 spec:
+  params:
+    - name: Cloud_Api_key
+      description: Cloud_Api_key
+    - name: User_Name
+      description: User_Name
+    - name: Pwd
+      description: Password
   workspaces:
   - name: pipeline-pvc
   tasks:
     - name: pipeline-echo-hello-world
+      params:
+        - name: Cloud_Api_key
+          description: Cloud_Api_key
+        - name: User_Name
+          description: User_Name
+        - name: Pwd
+          description: Password
       taskRef:
         name: echo-hello-world
       workspaces:

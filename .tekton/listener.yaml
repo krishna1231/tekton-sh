@@ -3,6 +3,13 @@ kind: TriggerTemplate
 metadata:
   name: template
 spec:
+  params:
+    - name: Cloud_Api_key
+      description: Cloud_Api_key
+    - name: User_Name
+      description: User_Name
+    - name: Pwd
+      description: Password
   resourcetemplates:
     - apiVersion: v1
       kind: PersistentVolumeClaim
