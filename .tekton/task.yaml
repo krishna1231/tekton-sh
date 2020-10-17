@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: build-task
+  name: echo-hello-world
 spec:
   workspaces:
   - name: task-pvc
