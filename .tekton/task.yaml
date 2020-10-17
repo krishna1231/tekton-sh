@@ -3,17 +3,31 @@ kind: Task
 metadata:
   name: echo-hello-world
 spec:
+  params:
+    - name: Cloud_Api_key
+      description: Cloud_Api_key
+    - name: User_Name
+      description: User_Name
+    - name: Pwd
+      description: Password
   workspaces:
   - name: task-pvc
     mountPath: /artifacts   
   steps:
     - name: echo-hello-world
       image: ubuntu
+      env: 
+        - name: Cloud_Api_key
+          value: $(params.Cloud_Api_key)
+        - name: User_Name
+          value: $(params.User_Name)
+        - name: Pwd
+          value: $(params.Pwd)
       script: |
         #!/usr/bin/env bash
         set -xe
         echo "This is krishna"
-        ibmcloud resource service-instance-delete mas-keyprotect
-        echo "mas-keyprotect deleted"
+        echo "User_Name $User_Name"
+        echo "Parameters reading"
 
       
